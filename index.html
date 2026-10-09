@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>DEAD KEY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=VT323&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app">
+  <section id="stage" aria-label="The office">
+ <div id="lobby" hidden></div>
+    <button type="button" id="sharedBtn" class="btn btn-small" hidden></button>
+    <canvas id="screen" width="256" height="192" aria-label="Your office, seen from the desk"></canvas>
+    <img id="title-art" alt="" hidden>
+    <div id="overlay">
+      <div id="title-panel">
+        <div class="langs" role="group" aria-label="Language">
+          <button type="button" class="lang" data-lang="en">English</button>
+          <button type="button" class="lang" data-lang="hu">Magyar</button>
+          <button type="button" class="lang" data-lang="fr">Français</button>
+        </div>
+        <p class="tagline" id="tagline"></p>
+        <div class="choice">
+          <button type="button" id="start15" class="btn"></button>
+          <button type="button" id="start10" class="btn btn-quiet"></button>
+        </div>
+        <div class="choice choice2">
+          <button type="button" id="dailyBtn" class="btn btn-quiet btn-small"></button>
+          <button type="button" id="vsBtn" class="btn btn-quiet btn-small"></button>
+          <button type="button" id="coopBtn" class="btn btn-quiet btn-small"></button>
+          <button type="button" id="moreBtn" class="btn btn-quiet btn-small"></button>
+        </div>
+        <p class="small" id="small"></p>
+      </div>
+    </div>
+    <p id="status" aria-live="polite">&nbsp;</p>
+    <nav id="toolbar" aria-label="Settings">
+      <button type="button" id="soundBtn" class="tool">Sound: on</button>
+      <label class="tool vol"><span id="musicLbl">Music</span> <input type="range" id="musicVol" min="0" max="100" value="70" aria-label="Music volume"></label>
+      <button type="button" id="fsBtn" class="tool">Full screen</button>
+      <button type="button" id="restartBtn" class="tool">Start over</button>
+    </nav>
+    <details id="notes">
+      <summary id="notesSum">Notes</summary>
+      <textarea id="notesArea" rows="4" spellcheck="false"></textarea>
+    </details>
+  </section>
+
+
+  <section id="desk" aria-label="Typewriter">
+    <div id="paper" aria-live="polite">
+      <div id="sheet"></div>
+    </div>
+    <div id="keys" aria-label="Typewriter keys"></div>
+  </section>
+
+</main>
+
+<input id="kbd" type="text" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" aria-label="Typewriter input">
+<div id="doc" role="dialog" aria-modal="true" aria-labelledby="doc-title" hidden>
+  <div id="doc-card">
+    <div id="doc-body"></div>
+    <button type="button" id="doc-close" class="btn">Put it back</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
